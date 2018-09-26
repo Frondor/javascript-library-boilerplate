@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Javascript bundle gets inyected right here -->
+</head>
+
+<body>
+  <script>
+    const myLibrary = window["<%= webpackConfig.output.library %>"];
+    console.log("Say hi!", myLibrary());
+  </script>
+</body>
+
+</html>

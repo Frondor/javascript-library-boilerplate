@@ -1,0 +1,48 @@
+{
+  "name": "webpack-library-boilerplate",
+  "version": "0.0.1",
+  "description": "Boilerplate code for front-end javascript libraries using webpack 4 and babel 7, with Sass support and Jest as test runner",
+  "private": true,
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "webpack --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "start": "webpack-dev-server --config webpack.dev.js --hot --open",
+    "test": "jest tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frondor/webpack-library-boilerplate.git"
+  },
+  "engines": {
+    "node": ">= 8"
+  },
+  "keywords": [
+    "browser",
+    "library",
+    "javascript",
+    "project",
+    "boilerplate",
+    "es6",
+    "webpack",
+    "babel",
+    "npm",
+    "sass",
+    "jest"
+  ],
+  "author": "Frondor",
+  "license": "MIT",
+  "homepage": "https://github.com/Frondor/webpack-library-boilerplate#readme",
+  "sideEffects": false,
+  "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.2",
+    "clean-webpack-plugin": "^0.1.19",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.8",
+    "webpack-merge": "^4.1.4"
+  }
+}
