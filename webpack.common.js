@@ -1,7 +1,10 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const pkg = require("./package.json");
 
-const libName = "myLib";
+const libName = pkg.name.replace(/[^a-z][a-z0-9]{1}/gi, (n, i, s) =>
+  s[i + 1].toUpperCase()
+);
 
 module.exports = {
   entry: {
@@ -30,6 +33,9 @@ module.exports = {
         }
       }
     ]
+  },
+  resolve: {
+    extensions: [".wasm", ".mjs", ".js", ".json", ".sass", ".scss"]
   },
   externals: [
     // Everything that starts with "lodash/"

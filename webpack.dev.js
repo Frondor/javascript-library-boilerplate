@@ -1,9 +1,11 @@
 const path = require("path");
 const merge = require("webpack-merge");
-const common = require("./webpack.common.js");
+const common = require("./webpack.common");
+process.env.NODE_ENV = "development"; // needed for sass config
+const sass = require("./webpack.sass");
 
-module.exports = merge(common, {
-  mode: "development",
+const dev = {
+  mode: process.env.NODE_ENV,
   devServer: {
     contentBase: path.resolve(__dirname, "dist"),
     overlay: true,
@@ -11,4 +13,6 @@ module.exports = merge(common, {
     port: "8080",
     public: "localhost:8080"
   }
-});
+};
+
+module.exports = merge(common, dev, sass);

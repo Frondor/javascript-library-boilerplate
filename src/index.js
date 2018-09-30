@@ -1,5 +1,7 @@
 // ./utils/mod function should not get bundled
 import { sum } from "./utils";
+// import sass / scss modules
+import "./sass/main";
 
 console.log("2 + 2 =", sum(2, 2));
 console.log("4 + 4 =", sum(4, 4));

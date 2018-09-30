@@ -1,5 +1,6 @@
 const merge = require("webpack-merge");
-const common = require("./webpack.common.js");
+const common = require("./webpack.common");
+const sass = require("./webpack.sass");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 const baseProd = merge(common, {
@@ -16,4 +17,4 @@ const umd = {
   }
 };
 
-module.exports = [baseProd, merge(baseProd, umd)];
+module.exports = [merge(baseProd, sass), merge(baseProd, umd, sass)];
