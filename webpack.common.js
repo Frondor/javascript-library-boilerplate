@@ -39,6 +39,6 @@ module.exports = {
   },
   externals: [
     // Everything that starts with "lodash/"
-    /^lodash\/.+$/
+    // /^lodash\/.+$/
   ]
 };

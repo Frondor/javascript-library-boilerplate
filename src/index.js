@@ -1,7 +1,7 @@
 // ./utils/mod function should not get bundled
 import { sum } from "./utils";
 // import sass / scss modules
-import "./sass/main";
+import "./sass/main.sass";
 
 console.log("2 + 2 =", sum(2, 2));
 console.log("4 + 4 =", sum(4, 4));
@@ -21,7 +21,6 @@ class sayHi {
     this.message = ["What does the lib say:", ...sayHello(hi)];
   }
 
-  // Class method
   toString() {
     return `"${this.message.join(" ")}"`;
   }
@@ -32,5 +31,5 @@ export default function() {
   const h1 = document.createElement("h1");
   h1.innerHTML = new sayHi("Good bye! bye!");
   document.body.appendChild(h1);
-  return h1.innerHTML
+  return h1.innerHTML;
 }

@@ -7,7 +7,7 @@ module.exports = {
         test: /\.s[c|a]ss$/,
         use: [
           // fallback to style-loader in development for HMR
-          // until mini-css-ex-p implements it
+          // until mini-css-extract-plugin implements it
           process.env.NODE_ENV === "development"
             ? "style-loader"
             : MiniCssExtractPlugin.loader,

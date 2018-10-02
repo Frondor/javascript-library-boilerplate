@@ -4,8 +4,9 @@ const presetEnvOptions = {
   // for injecting polyfills change to "usage" and run "npm i -D core-js"
   useBuiltIns: false,
   targets: {
-    browsers: ["> 0.25%", "last 2 versions", "not ie <= 10"]
-  }
+    browsers: ["> 0.25%", "last 2 versions", "not ie < 11"]
+  },
+  modules: false
 };
 
 module.exports = function(api) {
