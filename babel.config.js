@@ -10,7 +10,7 @@ const presetEnvOptions = {
   }
 };
 
-if (!isTest) presetEnvOptions.module = false;
+if (!isTest) presetEnvOptions.modules = false;
 
 module.exports = function(api) {
   api.cache(true);
