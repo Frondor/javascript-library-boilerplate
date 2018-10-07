@@ -2,7 +2,7 @@
   "name": "webpack-library-boilerplate",
   "version": "0.0.1",
   "description": "Boilerplate code for front-end javascript libraries using webpack 4 and babel 7, with Sass support and Jest as test runner",
-  "private": true,
+  "private": false,
   "main": "src/index.js",
   "files": [
     "dist",
@@ -12,7 +12,7 @@
     "dev": "webpack --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server --config webpack.dev.js --hot --open",
-    "test": "jest tests"
+    "test": "jest --no-cache"
   },
   "repository": {
     "type": "git",
@@ -51,7 +51,10 @@
   },
   "dependencies": {
     "autoprefixer": "^9.1.5",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
     "css-loader": "^1.0.0",
+    "jest": "^23.6.0",
     "mini-css-extract-plugin": "^0.4.3",
     "node-sass": "^4.9.3",
     "optimize-css-assets-webpack-plugin": "^5.0.1",

@@ -1,3 +1,4 @@
+const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
@@ -5,6 +6,7 @@ module.exports = {
     rules: [
       {
         test: /\.s[c|a]ss$/,
+        include: path.resolve(__dirname, "src/sass"),
         use: [
           // fallback to style-loader in development for HMR
           // until mini-css-extract-plugin implements it
