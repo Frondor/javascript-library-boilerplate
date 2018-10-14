@@ -1,7 +1,7 @@
 const isTest = process.env.NODE_ENV === "test";
 
 const presetEnvOptions = {
-  debug: !isTest,
+  debug: false,
   // NOT RECOMMENDED FOR LIBRARIES:
   // for injecting polyfills change to "usage" and run "npm i -D core-js"
   useBuiltIns: false,

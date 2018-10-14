@@ -1,9 +1,10 @@
 {
-  "name": "webpack-library-boilerplate",
+  "name": "cool-library",
   "version": "0.0.1",
-  "description": "Boilerplate code for front-end javascript libraries using webpack 4 and babel 7, with Sass support and Jest as test runner",
+  "description": "Webpack 4 based boilerplate to create libraries for the browser and Node.js! Featuring Babel 7, SASS, Jest and development workspace with HMR",
   "private": false,
-  "main": "src/index.js",
+  "main": "dist/coolLibrary.node.js",
+  "browser": "dist/coolLibrary.js",
   "files": [
     "dist",
     "src/sass"
@@ -12,11 +13,39 @@
     "dev": "webpack --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server --config webpack.dev.js --hot --open",
-    "test": "jest --no-cache"
+    "test": "jest",
+    "coverage": "npm run test -- --coverage"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Frondor/webpack-library-boilerplate.git"
+  "author": {
+    "name": "Federico Vázquez (Frondor)",
+    "url": "https://frondor.github.io"
+  },
+  "repository": "https: //github.com/Frondor/javascript-library-boilerplate",
+  "homepage": "https://github.com/Frondor/javascript-library-boilerplate#readme",
+  "license": "MIT",
+  "sideEffects": false,
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.4",
+    "clean-webpack-plugin": "^0.1.19",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.6.0",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9",
+    "webpack-merge": "^4.1.4",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "autoprefixer": "^9.1.5",
+    "css-loader": "^1.0.0",
+    "mini-css-extract-plugin": "^0.4.3",
+    "node-sass": "^4.9.3",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.0"
   },
   "engines": {
     "node": ">= 8"
@@ -33,34 +62,5 @@
     "sass",
     "scss",
     "jest"
-  ],
-  "author": "Frondor",
-  "license": "MIT",
-  "homepage": "https://github.com/Frondor/webpack-library-boilerplate#readme",
-  "sideEffects": false,
-  "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.0",
-    "babel-loader": "^8.0.4",
-    "clean-webpack-plugin": "^0.1.19",
-    "html-webpack-plugin": "^3.2.0",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.9",
-    "webpack-merge": "^4.1.4"
-  },
-  "dependencies": {
-    "autoprefixer": "^9.1.5",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^23.6.0",
-    "css-loader": "^1.0.0",
-    "jest": "^23.6.0",
-    "mini-css-extract-plugin": "^0.4.3",
-    "node-sass": "^4.9.3",
-    "optimize-css-assets-webpack-plugin": "^5.0.1",
-    "postcss-loader": "^3.0.0",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.0",
-    "uglifyjs-webpack-plugin": "^2.0.1"
-  }
+  ]
 }

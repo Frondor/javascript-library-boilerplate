@@ -1,10 +1,22 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const pkg = require("./package.json");
 
 const libName = pkg.name.replace(/[^a-z][a-z0-9]{1}/gi, (n, i, s) =>
   s[i + 1].toUpperCase()
 );
+
+const plugins = [];
+
+if (pkg.devDependencies["css-loader"]) {
+  const HtmlWebpackPlugin = require("html-webpack-plugin");
+  plugins.push(
+    new HtmlWebpackPlugin({
+      title: "Development Workspace",
+      template: "./dev/index.html",
+      inject: "head"
+    })
+  );
+}
 
 module.exports = {
   entry: {
@@ -14,15 +26,10 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].js",
     library: libName,
+    libraryTarget: "umd",
     libraryExport: "default"
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: "Development Workspace",
-      template: "./dev/index.html",
-      inject: "head"
-    })
-  ],
+  plugins,
   module: {
     rules: [
       {

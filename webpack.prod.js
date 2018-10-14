@@ -1,35 +1,58 @@
 const merge = require("webpack-merge");
 const common = require("./webpack.common");
-const sass = require("./webpack.sass");
+const pkg = require("./package.json");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
-const baseProd = merge.smart(common, {
+const optionalCSS = [];
+
+if (pkg.devDependencies["css-loader"]) {
+  const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+  const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+  const sass = require("./webpack.sass");
+
+  const optimizeCSS = {
+    optimization: {
+      minimizer: [
+        new UglifyJsPlugin({
+          cache: true,
+          parallel: true,
+          sourceMap: true // set to true if you want JS source maps
+        }),
+        new OptimizeCSSAssetsPlugin({})
+      ]
+    }
+  };
+
+  optionalCSS.push(sass, optimizeCSS);
+}
+
+const prod = {
   mode: "production",
   devtool: "source-map",
-  optimization: {
-    minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: true // set to true if you want JS source maps
-      }),
-      new OptimizeCSSAssetsPlugin({})
-    ]
-  },
   plugins: [new CleanWebpackPlugin(["dist"])]
-});
-
-const umd = {
-  output: {
-    filename: "[name].umd.js",
-    libraryExport: "default",
-    libraryTarget: "umd"
-  }
 };
 
-module.exports = [
-  merge.smart(baseProd, sass),
-  merge.smart(baseProd, umd, sass)
-];
+const WebConfig = merge.smart(common, prod, ...optionalCSS);
+const NodeConfig = merge.smart(WebConfig, {
+  target: "node"
+});
+
+const targets = [];
+
+// https://webpack.js.org/concepts/targets/
+if (pkg.browser) {
+  targets.push(WebConfig);
+
+  if (/\.node\.js$/.test(pkg.main)) {
+    // avoid name conflicts
+    NodeConfig.output.filename = NodeConfig.output.filename.replace(
+      ".js",
+      ".node.js"
+    );
+    targets.push(NodeConfig);
+  }
+} else {
+  targets.push(NodeConfig);
+}
+
+module.exports = targets;

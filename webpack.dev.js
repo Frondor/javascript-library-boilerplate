@@ -1,11 +1,10 @@
 const path = require("path");
 const merge = require("webpack-merge");
 const common = require("./webpack.common");
-process.env.NODE_ENV = "development"; // needed for sass config
-const sass = require("./webpack.sass");
+const pkg = require("./package.json");
 
 const dev = {
-  mode: process.env.NODE_ENV,
+  mode: "development",
   devServer: {
     contentBase: path.resolve(__dirname, "dist"),
     overlay: true,
@@ -15,4 +14,11 @@ const dev = {
   }
 };
 
-module.exports = merge(common, dev, sass);
+const config = [common, dev];
+
+if (pkg.devDependencies["css-loader"]) {
+  process.env.NODE_ENV = dev.mode; // needed for sass config
+  config.push(require("./webpack.sass"));
+}
+
+module.exports = merge(...config);
