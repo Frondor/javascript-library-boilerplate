@@ -1,7 +1,8 @@
+const path = require("path");
 const merge = require("webpack-merge");
-const common = require("./webpack.common");
-const pkg = require("./package.json");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const pkg = require("../package.json");
+const common = require("./webpack.common");
 
 const optionalCSS = [];
 
@@ -29,7 +30,11 @@ if (pkg.devDependencies["css-loader"]) {
 const prod = {
   mode: "production",
   devtool: "source-map",
-  plugins: [new CleanWebpackPlugin(["dist"])]
+  plugins: [
+    new CleanWebpackPlugin(["dist"], {
+      root: path.resolve(__dirname, "..")
+    })
+  ]
 };
 
 const WebConfig = merge.smart(common, prod, ...optionalCSS);

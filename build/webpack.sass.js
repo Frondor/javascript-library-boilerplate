@@ -6,7 +6,7 @@ module.exports = {
     rules: [
       {
         test: /\.s[c|a]ss$/,
-        include: path.resolve(__dirname, "src/sass"),
+        include: path.resolve(__dirname, "../src/sass"),
         use: [
           // fallback to style-loader in development for HMR
           // until mini-css-extract-plugin implements it

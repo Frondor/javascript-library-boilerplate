@@ -1,5 +1,5 @@
 const path = require("path");
-const pkg = require("./package.json");
+const pkg = require("../package.json");
 
 const libName = pkg.name.replace(/[^a-z][a-z0-9]{1}/gi, (n, i, s) =>
   s[i + 1].toUpperCase()
@@ -23,7 +23,7 @@ module.exports = {
     [libName]: "./src/index.js"
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "../dist"),
     filename: "[name].js",
     library: libName,
     libraryTarget: "umd",
@@ -34,7 +34,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        include: [path.resolve(__dirname, "src")],
+        include: [path.resolve(__dirname, "../src")],
         use: {
           loader: "babel-loader"
         }
@@ -42,7 +42,16 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [".wasm", ".mjs", ".js", ".json", ".sass", ".scss"]
+    extensions: [
+      ".wasm",
+      ".mjs",
+      ".js",
+      ".json",
+      ".sass",
+      ".scss",
+      ".ts",
+      ".tsx"
+    ]
   },
   externals: [
     // Everything that starts with "lodash/"

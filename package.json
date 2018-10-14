@@ -10,9 +10,9 @@
     "src/sass"
   ],
   "scripts": {
-    "dev": "webpack --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
-    "start": "webpack-dev-server --config webpack.dev.js --hot --open",
+    "dev": "webpack --config build/webpack.dev.js",
+    "build": "webpack --config build/webpack.prod.js",
+    "start": "webpack-dev-server --config build/webpack.dev.js --hot --open",
     "test": "jest",
     "coverage": "npm run test -- --coverage"
   },
