@@ -1,5 +1,8 @@
 # Javascript Library Boilerplate
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Frondor/javascript-library-boilerplate.svg)](https://greenkeeper.io/)
+
+
 Webpack 4 based boilerplate to create libraries for the browser, Node, or BOTH!
 Featuring Babel 7, SASS, Jest and development workspace with HMR.
 
