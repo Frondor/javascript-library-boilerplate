@@ -4,7 +4,7 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/Frondor/javascript-library-boilerplate.svg)](https://greenkeeper.io/)
 
 Webpack 4 based boilerplate to create libraries for the browser, Node, or BOTH!
-Featuring Babel 7, SASS, Jest and development workspace with HMR.
+Featuring Babel 7, Sass, Jest and development workspace with HMR.
 
 ## Getting started
 
@@ -14,7 +14,7 @@ Featuring Babel 7, SASS, Jest and development workspace with HMR.
 4.  Run `npm install`
 5.  Make it happen! :rocket:
 
-### Do you need CSS and SASS support?
+### Do you need CSS and Sass support?
 
 If the answer is **YES**, do nothing. This is enabled by default.
 You can now start importing css/sass/scss files from your js modules ([see demo](src/index.js#L4)).

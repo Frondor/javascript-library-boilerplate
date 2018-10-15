@@ -1,7 +1,7 @@
 {
   "name": "cool-library",
   "version": "1.0.0",
-  "description": "Webpack 4 based boilerplate to create libraries for the browser and NodeJS! Featuring Babel 7, SASS, Jest and development workspace with HMR.",
+  "description": "Webpack 4 based boilerplate to create libraries for the browser and NodeJS! Featuring Babel 7, Sass, Jest and development workspace with HMR.",
   "private": false,
   "main": "dist/coolLibrary.node.js",
   "browser": "dist/coolLibrary.js",
