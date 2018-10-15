@@ -17,7 +17,6 @@ const dev = {
 const config = [common, dev];
 
 if (pkg.devDependencies["css-loader"]) {
-  process.env.NODE_ENV = dev.mode; // needed for sass config
   config.push(require("./webpack.sass"));
 }
 

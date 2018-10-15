@@ -1,5 +1,10 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// console.log(
+//   Object.keys(process.env)
+//     .filter(k => /^npm/i.test(k))
+//     .map(k => `${k} => ${process.env[k]}`)
+// );
 
 module.exports = {
   module: {
@@ -10,7 +15,7 @@ module.exports = {
         use: [
           // fallback to style-loader in development for HMR
           // until mini-css-extract-plugin implements it
-          process.env.NODE_ENV === "development"
+          process.argv.includes("--hot")
             ? "style-loader"
             : MiniCssExtractPlugin.loader,
           "css-loader",
