@@ -16,7 +16,8 @@ Featuring Babel 7, SASS, Jest and development workspace with HMR.
 
 ### Do you need CSS and SASS support?
 
-If the answer is **YES**, do nothing, it comes like that by default. You can now start importing css/sass/scss files from your js modules ([see demo](src/index.js#L4)).
+If the answer is **YES**, do nothing. This is enabled by default.
+You can now start importing css/sass/scss files from your js modules ([see demo](src/index.js#L4)).
 
 If the answer is **NO**, then _remove_ all `devDependencies` below `autoprefixer` (including) in `package.json`.
 And that's it, hopefully you won't break anything :sweat_smile:
@@ -31,7 +32,7 @@ The system will create the js bundle(s) depending on the `browser` and `main` fi
 - Add the `browser` field pointing to the umd file in /dist (same as in main) to target the Web.
 - Provide both `browser` and `main` fields, **but append `.node.js` to the filename used in the `main` field**, so the system knows it has to generate an extra bundle for Node.js envs.
 
-  The code behind this logic resides in [`webpack.prod.js`](webpack.prod.js#L43) (and it's awful but it works!)
+The code behind this logic resides in [`build/webpack.prod.js`](build/webpack.prod.js#L43) (and it's awful but it works!)
 
 We are targeting both by default:
 
@@ -45,11 +46,11 @@ We are targeting both by default:
 
 ## Browser Workflow
 
-In development, you can start a dev server with HMR by running `npm start`
+For development, you can start a dev server with HMR by running `npm start`. It will automatically open a browser tab and serve [/dev/index.html](dev/index.html), just like a rustic playground for your library.
 
 ## NodeJS Workflow
 
-No mysteries here, you can use your IDE just as you do with any other js module. For instance, with [VS Code](https://code.visualstudio.com/docs/nodejs/nodejs-debugging)
+No mysteries here, you can use your own IDE just as you do with other js modules. For instance, use [VS Code](https://code.visualstudio.com/docs/nodejs/nodejs-debugging).
 
 ## Testing
 
@@ -64,7 +65,7 @@ Jest is in charge of testing by default, read more about it [here](https://jestj
 <details>
   <summary>How do I change the name of my lib?</summary>
   The artifact names are generated after the package name (name field in package.json), and coincides with the name used by the `var` version of the module.
-  The system uses kind of a camelCase version of the name field, you can find it at <a href="webpack.common.js#L4">webpack.common.js</a>
+  The system uses kind of a camelCase version of the name field, you can find it at <a href="build/webpack.common.js#L4">build/webpack.common.js</a>
 </details>
 
 ## Contribute
@@ -73,9 +74,7 @@ Every suggestion is welcome! If you have some idea that may improve the usabilit
 
 ## Roadmap
 
+- Implement ESLint
 - `/config.js` file for centralized configs and move everything to a `/config` dir.
-- Linting (and code quality?)
-- CSS modules support
-- Typescript support
 - Automatic generator?
 - [Have any suggestion?](/Frondor/javascript-library-boilerplate/issues)
