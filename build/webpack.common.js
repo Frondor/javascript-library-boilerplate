@@ -8,10 +8,7 @@ const libName = pkg.name.replace(/[^a-z][a-z0-9]{1}/gi, (n, i, s) =>
 
 const plugins = [];
 
-if (
-  pkg.browser &&
-  fs.existsSync(path.resolve(__dirname, "../dev/index.html"))
-) {
+if (fs.existsSync(path.resolve(__dirname, "../dev/index.html"))) {
   const HtmlWebpackPlugin = require("html-webpack-plugin");
   plugins.push(
     new HtmlWebpackPlugin({
