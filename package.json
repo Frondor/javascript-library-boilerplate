@@ -21,7 +21,7 @@
     "name": "Federico Vázquez (Frondor)",
     "url": "https://frondor.github.io"
   },
-  "repository": "https: //github.com/Frondor/javascript-library-boilerplate",
+  "repository": "https://github.com/Frondor/javascript-library-boilerplate",
   "homepage": "https://github.com/Frondor/javascript-library-boilerplate#readme",
   "license": "MIT",
   "sideEffects": false,
