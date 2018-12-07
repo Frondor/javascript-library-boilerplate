@@ -41,7 +41,7 @@
     "uglifyjs-webpack-plugin": "^2.0.1",
     "autoprefixer": "^9.1.5",
     "css-loader": "^1.0.0",
-    "mini-css-extract-plugin": "^0.4.3",
+    "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.9.3",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-loader": "^3.0.0",
