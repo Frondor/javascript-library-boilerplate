@@ -16,7 +16,7 @@
     "test": "jest",
     "coverage": "npm run test -- --coverage",
     "prepublishOnly": "npm test && npm run build",
-    "upgrade": "npx npm-check-updates -u"
+    "upgrade-all": "npx npm-check-updates -u && npm i"
   },
   "author": {
     "name": "Federico Vázquez (Frondor)",
