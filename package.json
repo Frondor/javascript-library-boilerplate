@@ -27,7 +27,7 @@
   "license": "MIT",
   "sideEffects": false,
   "devDependencies": {
-    "@babel/core": "^7.6.0",
+    "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.6.0",
     "autoprefixer": "^9.6.1",
     "babel-core": "^7.0.0-bridge.0",
