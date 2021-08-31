@@ -3,6 +3,30 @@
   "version": "1.0.0",
   "description": "Webpack 4 based boilerplate to create libraries for the browser and NodeJS! Featuring Babel 7, Sass, Jest and development workspace with HMR.",
   "private": false,
+  "author": {
+    "name": "Federico Vázquez (Frondor)",
+    "url": "https://frondor.github.io"
+  },
+  "repository": "https://github.com/Frondor/javascript-library-boilerplate",
+  "homepage": "https://github.com/Frondor/javascript-library-boilerplate#readme",
+  "license": "MIT",
+  "keywords": [
+    "browser",
+    "library",
+    "javascript",
+    "project",
+    "boilerplate",
+    "es6",
+    "webpack",
+    "babel",
+    "sass",
+    "scss",
+    "jest"
+  ],
+  "engines": {
+    "node": ">= 8"
+  },
+  "sideEffects": false,
   "main": "dist/coolLibrary.node.js",
   "browser": "dist/coolLibrary.js",
   "files": [
@@ -18,14 +42,6 @@
     "prepublishOnly": "npm test && npm run build",
     "upgrade-all": "npx npm-check-updates -u && npm i"
   },
-  "author": {
-    "name": "Federico Vázquez (Frondor)",
-    "url": "https://frondor.github.io"
-  },
-  "repository": "https://github.com/Frondor/javascript-library-boilerplate",
-  "homepage": "https://github.com/Frondor/javascript-library-boilerplate#readme",
-  "license": "MIT",
-  "sideEffects": false,
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
@@ -33,36 +49,22 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
-    "clean-webpack-plugin": "^3.0.0",
-    "css-loader": "^3.2.0",
-    "html-webpack-plugin": "^3.2.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.3.0",
+    "css-minimizer-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^5.3.2",
     "jest": "^24.9.0",
-    "mini-css-extract-plugin": "^0.8.0",
-    "node-sass": "^4.12.0",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
-    "postcss-loader": "^3.0.0",
-    "sass-loader": "^8.0.0",
-    "style-loader": "^1.0.0",
+    "mini-css-extract-plugin": "^2.3.0",
+    "optimize-css-assets-webpack-plugin": "^6.0.1",
+    "postcss": "^8.3.7",
+    "postcss-loader": "^6.1.1",
+    "sass": "^1.42.1",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.3.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "^4.40.2",
-    "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.8.1",
-    "webpack-merge": "^4.2.2"
-  },
-  "engines": {
-    "node": ">= 8"
-  },
-  "keywords": [
-    "browser",
-    "library",
-    "javascript",
-    "project",
-    "boilerplate",
-    "es6",
-    "webpack",
-    "babel",
-    "sass",
-    "scss",
-    "jest"
-  ]
+    "webpack": "^5.54.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.2.1",
+    "webpack-merge": "^5.8.0"
+  }
 }
