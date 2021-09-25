@@ -1,5 +1,5 @@
 const path = require('path');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const pkg = require('../package.json');
 const common = require('./webpack.common');
@@ -8,7 +8,8 @@ const optionalCSS = [];
 
 if (pkg.devDependencies['css-loader']) {
   const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-  const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+  const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+  // const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
   const sass = require('./webpack.sass');
 
   const optimizeCSS = {
@@ -19,7 +20,8 @@ if (pkg.devDependencies['css-loader']) {
           parallel: true,
           sourceMap: true, // set to true if you want JS source maps
         }),
-        new OptimizeCSSAssetsPlugin({}),
+        new CssMinimizerPlugin(),
+        // new OptimizeCSSAssetsPlugin({}),
       ],
     },
   };
@@ -35,8 +37,8 @@ const prod = {
   ],
 };
 
-const WebConfig = merge.smart(common, prod, ...optionalCSS);
-const NodeConfig = merge.smart(WebConfig, {
+const WebConfig = merge(common, prod, ...optionalCSS);
+const NodeConfig = merge(WebConfig, {
   target: 'node',
 });
 

@@ -1,16 +1,16 @@
 const path = require("path");
-const merge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const common = require("./webpack.common");
 const pkg = require("../package.json");
 
 const dev = {
   mode: "development",
   devServer: {
-    contentBase: path.resolve(__dirname, "../dist"),
-    overlay: true,
-    host: "0.0.0.0",
+    static: path.resolve(__dirname, "../dist"),
+    // overlay: true,
+    host: "127.0.0.1",
     port: "8080",
-    public: "localhost:8080"
+    // public: "localhost:8080"
   }
 };
 
